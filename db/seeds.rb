@@ -16,8 +16,15 @@ Restaurant.destroy_all
                               category: ["Chinese", "Italian", "Japanese", "French", "Belgian"].sample
                             )
   restaurant.save
-  review = Review.new(rating: rand(0..5),
+
+  review = Review.new(restaurant_id: restaurant.id,
+                      rating: rand(0..5),
                       content: Faker::Restaurant.review)
-  review.save
+
+  if review.valid?
+    review.save
+  else
+    puts review.errors.messages
+  end
 end
 puts "all done"

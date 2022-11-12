@@ -19,10 +19,11 @@
     <%= restaurant.category %>
   </p>
 
-  <%
-=begin%>
- <%= restaurant.reviews.first.content %>
-<%
-=end%>
+
+  <p><strong>Content:</strong>
+  <%= restaurant.reviews.first.content %></p>
+
+  <p><strong>Rating:</strong>
+  <%= restaurant.reviews.first.rating %></p>
 
 </div>
